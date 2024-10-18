@@ -3,5 +3,5 @@ from api import views
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('/roupas', views.ClothingViewSet, name='clothes'),
+    path('/roupas', views.ClothingView.as_view(), name='clothes'),
 ]
