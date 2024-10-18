@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from .models import Clothing
 
-class ClothingSerializer(serializers.HyperlinkedModelSerializer):
+class ClothingSerializer(serializers.ModelSerializer):
     class Meta:
         model = Clothing
-        exclude = ['id']
+        fields = '__all__'
