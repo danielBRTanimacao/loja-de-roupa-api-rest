@@ -1,17 +1,17 @@
-from flask import Flask
+from flask import Flask, render_template, make_response
 import json
 
 app = Flask(__name__)
 
-@app.route("/")
+@app.route("/", methods=['GET'])
 def index():
-    return "<p>Hello, World!</p>"
+    return render_template('index.html')
 
-@app.route("/list")
-def hello_world():
+@app.route("/roupas", methods=['GET', 'POST'])
+def clothes():
     with open('json/list.json', 'r') as file:
         data = json.load(file)
 
-    return f"<p>{data}</p>"
+    return make_response(data)
 
-app.run()
+app.run(debug=True)
