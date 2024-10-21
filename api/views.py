@@ -1,12 +1,18 @@
 from django.shortcuts import get_object_or_404
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from rest_framework import status
+from rest_framework import status, viewsets
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from .serializers import ClothingSerializer
 from .models import Clothing
 
-# Create your views here.
+class ClothingViewSet(viewsets.ModelViewSet):
+    permission_classes = [IsAuthenticated]
+
+    serializer_class = ClothingSerializer
+    queryset = Clothing.objects.all()
+
+
 class ClothingView(APIView):
     permission_classes = [AllowAny]
 

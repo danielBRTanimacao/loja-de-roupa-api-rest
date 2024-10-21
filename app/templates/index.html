@@ -1,0 +1,18 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="{% static "css/index.css" %}">
+        <title>Fetch API Exemplo</title>
+    </head>
+    <body>
+        <h1>Exemplo de Fetch com Botão</h1>
+        <button onclick="buscarDados()">Buscar Dados</button>
+        
+        <div id="resultado">Clique no botão para ver os dados!</div>
+
+        <script src="{% static "js/index.js" %}"></script>
+    </body>
+</html>
