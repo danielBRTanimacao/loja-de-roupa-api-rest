@@ -90,3 +90,8 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
     ]
 }
+
+try:
+    from core.local_settings import *
+except ImportError:
+    ...
