@@ -15,6 +15,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'app',
     'api',
     'rest_framework',
 ]
@@ -75,11 +76,12 @@ LANGUAGE_CODE = 'pt-br'
 
 TIME_ZONE = 'America/Recife'
 
-USE_I18N = True
+USE_I18N = False
 
 USE_TZ = True
 
 STATIC_URL = 'static/'
+STATIC_ROOT = BASE_DIR / 'static'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
