@@ -7,20 +7,18 @@ from .serializers import ClothingSerializer
 from .models import Clothing
 
 class ClothingViewSet(viewsets.ModelViewSet):
-    permission_classes = [IsAuthenticated]
+    permission_classes = [AllowAny]
+
+    def get_permissions(self):
+        if self.request.method in ['POST', 'DELETE', 'PUT', 'PATCH']:
+            return [IsAuthenticated()]
+        return super().get_permissions()
 
     serializer_class = ClothingSerializer
     queryset = Clothing.objects.all()
 
 
 class ClothingView(APIView):
-    permission_classes = [AllowAny]
-
-    def get_permissions(self):
-        if self.request.method in ['POST', 'DELETE']:
-            return [IsAuthenticated()]
-        return super().get_permissions()
-
     def get(self, request):
         clothes = Clothing.objects.all()
         serializer = ClothingSerializer(clothes, many=True)
